@@ -1,0 +1,2 @@
+class Reletionship < ApplicationRecord
+end
