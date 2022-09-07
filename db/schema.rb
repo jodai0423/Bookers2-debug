@@ -70,13 +70,6 @@ ActiveRecord::Schema.define(version: 2022_09_01_180327) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "reletionships", force: :cascade do |t|
-    t.integer "follower_id"
-    t.integer "followed_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
