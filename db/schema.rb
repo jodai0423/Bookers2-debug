@@ -84,7 +84,8 @@ ActiveRecord::Schema.define(version: 2022_09_12_140949) do
   end
 
   create_table "user_rooms", force: :cascade do |t|
-    t.string "user_id"
+    t.integer "user_id"
+    t.integer "room_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
