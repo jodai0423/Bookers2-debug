@@ -1,30 +1,21 @@
-<h2><%= @user.name %>さんとのチャット</h2>
-<table>
-  <thead>
-    <tr>
-      <th><%= current_user.name %></th>
-      <th><%= @user.name %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <%= @chats.each do |chat| %>
-      <% if chat.user_id == current_user.id %>
-        <tr>
-          <td><%= chat.message %></td>
-          <td></td>
-        </tr>
-      <% else %>
-        <tr>
-          <td></td>
-          <td><%= chat.message %></td>
-        </tr>
-      <% end %>
-    <% end %>
-  </tbody>
-</table>
-
-<%= form_with model:@chat, remote:true do |f| %>
-  <%= f.text_field :message %>
-  <%= f.hidden_field :room_id %>
-  <%= f.submit "送信", class: "btn btn-sm btn-success chat-btn" %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6">
+      <h2><%= @user.name %>さんとのチャット</h2>
+       <table class="table">
+        <thead>
+          <tr>
+            <th style="text-align: left; font-size: 20px;"><%= current_user.name %></th>
+            <th style="text-align: right; font-size: 20px;"><%= @user.name %></th>
+          </tr>
+        </thead>
+        <tbody id="message">
+          <%= render 'chats/chats', chats: @chats %>
+        </tbody>
+      </table>
+      <div id="chats_form">
+        <%= render 'chats/chats_form', chat: @chat %>
+      </div>
+    </div>
+  </div>
+</div>
